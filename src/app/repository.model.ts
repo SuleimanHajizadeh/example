@@ -14,8 +14,4 @@ export class ProductRepository {
     getProducts(): Product[] {
         return this.products;
     }
-
-    getProductById(id: number): Product {
-        return this.products.find(p => p.id == id);
-    }
 }
