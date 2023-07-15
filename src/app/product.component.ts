@@ -11,14 +11,7 @@ import { Product } from "./product.model";
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
 
-    onSubmit($event: any) {
-        $event.stopPropagation();
-        console.log('button was clicked');
-        console.log($event)
+    onKeyUp(email: any) {
+        console.log(email);
     }
-
-    onDivClicked() {
-        console.log('div was clicked')
-    }
-   
 }
