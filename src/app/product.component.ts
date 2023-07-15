@@ -4,14 +4,20 @@ import { Product } from "./product.model";
 
 @Component({
     selector: "app",
-    templateUrl: "product.component.html",
+    template: `
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        <br>
+        <span> {{ email }} </span>
+    `,
     styleUrls: ["product.component.css"]
 })
 
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
 
-    onKeyUp(email: any) {
-        console.log(email);
+    email = "email@suleimanhajizadeh.com";
+
+    onKeyUp() {
+        console.log(this.email);
     }
 }
