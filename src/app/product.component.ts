@@ -25,4 +25,15 @@ export class ProductComponent {
             "text-center text-white": product.name == "Samsung S6"
         }
     }
+
+    color: string = this.model.getProductById(2).price <= 1000 ? "green" : "red";
+    fontSize: string = "25px";
+
+    getStyles(id:number) {
+        let product = this.model.getProductById(id);
+        return {
+            fontSize: "25px",
+            color: product.price <= 1000 ? "green" : "red"
+        }
+    }
 }
