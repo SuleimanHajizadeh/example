@@ -10,30 +10,15 @@ import { Product } from "./product.model";
 
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
-    disabled: false;
 
-    getClasses(id: number): string {
-        let product = this.model.getProductById(id);
-        return (product.price <= 1000 ? "bg-info" : "bg-secondary") + " m-2 p-2 text-white";
+    onSubmit($event: any) {
+        $event.stopPropagation();
+        console.log('button was clicked');
+        console.log($event)
     }
 
-    getClassMap(id: number): Object {
-        let product = this.model.getProductById(id);
-        return {
-            "bg-info": product.price <= 1000,
-            "bg-secondary": product.price > 1000,
-            "text-center text-white": product.name == "Samsung S6"
-        }
+    onDivClicked() {
+        console.log('div was clicked')
     }
-
-    color: string = this.model.getProductById(2).price <= 1000 ? "green" : "red";
-    fontSize: string = "25px";
-
-    getStyles(id:number) {
-        let product = this.model.getProductById(id);
-        return {
-            fontSize: "25px",
-            color: product.price <= 1000 ? "green" : "red"
-        }
-    }
+   
 }
